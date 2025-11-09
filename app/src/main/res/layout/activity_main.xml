@@ -11,5 +11,13 @@
         android:layout_height="wrap_content"
         android:text="Hello World!"
         android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/buttonChangeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Text Ändern"
+        android:layout_marginTop="24dp"/>
+
 </LinearLayout>
 
