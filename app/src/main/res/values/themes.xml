@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.SmartLoca" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <!-- Deine Farben/Anpassungen falls nötig -->
+    <style name="Theme.SmartLoca" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Farben etc. kannst du später ergänzen -->
     </style>
 
 </resources>

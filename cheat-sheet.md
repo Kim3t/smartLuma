@@ -1,5 +1,22 @@
 # Android Cheat-Sheet Java/XML
 
+## XML Container 
+
+- `LinearLayout` 
+    + simple Reihe (oben/unten oder links/rechts).
+
+- `RelativeLayout` (älter) 
+    + relativ zueinander.
+
+- `ConstraintLayout` 
+    + per Constraints (moderner, flexibler).
+
+- `FrameLayout` 
+    + übereinander stapeln
+
+## Allgemeine Elemente 
+
+
 | Kategorie           | Element                           | Wofür? (typisch)                                       | Merksatz zur Nutzung                                                               |
 | ------------------- | --------------------------------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------- |
 | Struktur            | `Activity`                        | Bildschirm / Einstiegspunkt                            | Eine Activity = ein Screen. In `onCreate()` `setContentView(...)` auf dein Layout. |

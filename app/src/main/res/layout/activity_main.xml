@@ -2,45 +2,62 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/helloText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:textSize="24sp" />
+    <!-- LinearLayout ist ein Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp">
 
-    <EditText
-        android:id="@+id/inputMessage"
+        <TextView
+            android:id="@+id/helloText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello World!"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/inputMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Text eingeben für zweite Activity"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="70dp" />
+
+        <Button
+            android:id="@+id/buttonChangeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Text Ändern"
+            android:layout_marginTop="24dp"/>
+
+        <Button
+            android:id="@+id/buttonShowToast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toast anzeigen"
+            android:layout_marginTop="16dp"/>
+
+        <Button
+            android:id="@+id/buttonOpenSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zur zweiten Activity"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+
+    <!-- Bottom Navigation View der definierten 'Menu XML' Elemente -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Text eingeben für zweite Activity"
-        android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="70dp" />
-
-    <Button
-        android:id="@+id/buttonChangeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Text Ändern"
-        android:layout_marginTop="24dp"/>
-
-    <Button
-        android:id="@+id/buttonShowToast"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Toast anzeigen"
-        android:layout_marginTop="16dp"/>
-
-    <Button
-        android:id="@+id/buttonOpenSecond"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Zur zweiten Activity"
-        android:layout_marginTop="16dp" />
-
+        app:menu="@menu/bottom_nav_menu" />
 
 </LinearLayout>
 

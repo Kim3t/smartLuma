@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.Toast;
 import android.widget.EditText;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +78,26 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
+        bottomNav.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.nav_home) {
+                // Wir sind schon auf Home -> nichts tun
+                return true;
+            } else if (id == R.id.nav_second) {
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                startActivity(intent);
+                return true;
+            } else if (id == R.id.nav_compass) {
+                //
+                Toast.makeText(this, "Compass (noch nicht implementiert)", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+            return false;
+        });
+
+        // Optional: Standard ausgewähltes Item
+        bottomNav.setSelectedItemId(R.id.nav_home);
 
     }
 }
