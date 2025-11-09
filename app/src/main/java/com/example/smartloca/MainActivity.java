@@ -30,5 +30,14 @@ public class MainActivity extends AppCompatActivity {
                 helloText.setText("Welcome to SmartLoca!")
         );
 
+        buttonShowToast.setOnClickListener(v ->
+                // Toast ist eine nicht aufdringliche Nachricht unten auf dem Bildschirm
+                // -> genutzt für kurze Rückmeldung (Formular gesendet etc.)
+                Toast.makeText(
+                        MainActivity.this,       // Welche Activity (falls mehrere)
+                        "Button geklickt: Toast aus MainActivity", // Text
+                        Toast.LENGTH_LONG               // Lenge der Toast anzeige
+                ).show()
+        );
     }
 }

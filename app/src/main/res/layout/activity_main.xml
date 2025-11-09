@@ -19,5 +19,12 @@
         android:text="Text Ändern"
         android:layout_marginTop="24dp"/>
 
+    <Button
+        android:id="@+id/buttonShowToast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Toast anzeigen"
+        android:layout_marginTop="16dp"/>
+
 </LinearLayout>
 
