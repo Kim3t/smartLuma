@@ -13,6 +13,29 @@
         android:orientation="vertical"
         android:padding="24dp">
 
+        <TextView
+            android:id="@+id/textAzimuth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Azimuth: -"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textPitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pitch: -"
+            android:textSize="20sp"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/textRoll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Roll: -"
+            android:textSize="20sp"
+            android:layout_marginTop="8dp" />
+
     </LinearLayout>
 
     <!-- Bottom Navigation View der definierten 'Menu XML' Elemente -->

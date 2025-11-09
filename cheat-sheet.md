@@ -1,5 +1,37 @@
 # Android Cheat-Sheet Java/XML
 
+## Table of Contents 
+| Thema | Link |
+| Small Notes for AS | [Here](#small-notes-for-as)
+| XML Container | [Here](#xml-container)
+| -- Autoaufruf von Methoden | [Here](#autoaufruf-von-methoden)
+| Allgemeine Elemente | [Here](#allgemeine-elemente)
+
+## Small Noted for AS
+### Autoaufruf von Methoden 
+- Wenn eine Activity neu geöffnet wird:
+    + onCreate()
+        * Einmaliger Setup-Code für diese Activity
+    + onStart()
+        * Activity wird sichtbar (auch nicht im Fokus) 
+    + onResume()
+        * jedesmal wenn Activity in Vordergrund geht
+
+- Wenn du von der Activity weggehst (z. B. andere Activity, Home-Button):
+    + onPause()
+        * wenn nicht mehr im Fokus 
+        * auch wenn noch sichtbar
+    + onStop()
+        * aufgerufen nach onPause() wenn Activity nicht mehr sichtbar ist
+    + (evtl.) onDestroy()
+        * Wenn Activity zerstört wird (Beenden der App -> nicht mehr im Memory)
+
+- Wenn du wieder zurückkommst (z. B. Back-Button zur bereits existierenden Activity):
+    + onRestart() (wenn sie gestoppt war)
+    + onStart()
+    + onResume()
+
+
 ## XML Container 
 
 - `LinearLayout` 
