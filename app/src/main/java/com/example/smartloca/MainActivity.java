@@ -51,6 +51,19 @@ public class MainActivity extends AppCompatActivity {
             // Input speichern
             String message = inputMessage.getText().toString().trim();
 
+            // Default für keine eingabe
+            if (message.isEmpty()){
+                // AlertDialog erfordert drücken von ok um weiter zu machen
+                new androidx.appcompat.app.AlertDialog.Builder(MainActivity.this)
+                        .setTitle("Hinweis")
+                        .setMessage("Bitte geben Sie eine Nachricht ein.")
+                        .setPositiveButton("OK", null) // schließt den Dialog
+                        .show();
+
+                // Listener hier abbrechen: kein Intent, kein Start der zweiten Activity
+                return;
+            }
+
             // starten einer neuer Activity (in Context this starte second)
             Intent intent = new Intent(MainActivity.this, SecondActivity.class);
 
