@@ -45,49 +45,43 @@ public class MainActivity extends AppCompatActivity {
                 ).show()
         );
 
-        Button buttonOpenSecond = findViewById(R.id.buttonOpenSecond);
         EditText inputMessage = findViewById(R.id.inputMessage);
-
-
-        buttonOpenSecond.setOnClickListener(v -> {
-            // Input speichern
-            String message = inputMessage.getText().toString().trim();
-
-            // Default für keine eingabe
-            if (message.isEmpty()){
-                // AlertDialog erfordert drücken von ok um weiter zu machen
-                new androidx.appcompat.app.AlertDialog.Builder(MainActivity.this)
-                        .setTitle("Hinweis")
-                        .setMessage("Bitte geben Sie eine Nachricht ein.")
-                        .setPositiveButton("OK", null) // schließt den Dialog
-                        .show();
-
-                // Listener hier abbrechen: kein Intent, kein Start der zweiten Activity
-                return;
-            }
-
-            // starten einer neuer Activity (in Context this starte second)
-            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-
-            // Input übergeben an second Activity
-            // erster para -> Key für andere Activity
-            intent.putExtra("EXTRA_MESSAGE", message);
-
-            // Übergibt an OS und holt aus Manifest die zweite Activity
-            // -> laden von neuer Activity
-            startActivity(intent);
-        });
-
         BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
+
         bottomNav.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.nav_home) {
                 // Wir sind schon auf Home -> nichts tun
                 return true;
             } else if (id == R.id.nav_second) {
-                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                startActivity(intent);
-                return true;
+                // Input speichern
+                String message = inputMessage.getText().toString().trim();
+
+                // Default für keine eingabe
+                if (message.isEmpty()){
+                    // AlertDialog erfordert drücken von ok um weiter zu machen
+                    new androidx.appcompat.app.AlertDialog.Builder(MainActivity.this)
+                            .setTitle("Hinweis")
+                            .setMessage("Bitte geben Sie eine Nachricht ein.")
+                            .setPositiveButton("OK", null) // schließt den Dialog
+                            .show();
+
+                    // Listener hier abbrechen: kein Intent, kein Start der zweiten Activity
+                    return false;
+                }
+                else {
+                    // starten einer neuer Activity (in Context this starte second)
+                    Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+
+                    // Input übergeben an second Activity
+                    // erster para -> Key für andere Activity
+                    intent.putExtra("EXTRA_MESSAGE", message);
+
+                    // Übergibt an OS und holt aus Manifest die zweite Activity
+                    // -> laden von neuer Activity
+                    startActivity(intent);
+                    return true;
+                }
             } else if (id == R.id.nav_compass) {
                 //
                 Toast.makeText(this, "Compass (noch nicht implementiert)", Toast.LENGTH_SHORT).show();

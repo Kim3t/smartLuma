@@ -43,13 +43,6 @@
             android:text="Toast anzeigen"
             android:layout_marginTop="16dp"/>
 
-        <Button
-            android:id="@+id/buttonOpenSecond"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Zur zweiten Activity"
-            android:layout_marginTop="16dp" />
-
     </LinearLayout>
 
     <!-- Bottom Navigation View der definierten 'Menu XML' Elemente -->

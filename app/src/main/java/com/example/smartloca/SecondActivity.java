@@ -21,16 +21,6 @@ public class SecondActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.textSecond);
         textView.setText("Das ist die zweite Activity");
 
-        Button buttonOpenFirst = findViewById(R.id.buttonOpenFirst);
-        buttonOpenFirst.setOnClickListener(v -> {
-            // starten einer neuer Activity (in Context this starte second)
-            Intent intent = new Intent( SecondActivity.this, MainActivity.class);
-
-            // Übergibt an OS und holt aus Manifest die zweite Activity
-            // -> laden von neuer Activity
-            startActivity(intent);
-        });
-
         // Intent und Extra auslesen
         String message = getIntent().getStringExtra("EXTRA_MESSAGE");
 
@@ -49,7 +39,11 @@ public class SecondActivity extends AppCompatActivity {
         bottomNav.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.nav_home) {
+                // starten einer neuer Activity (in Context this starte second)
                 Intent intent = new Intent(SecondActivity.this, MainActivity.class);
+
+                // Übergibt an OS und holt aus Manifest die zweite Activity
+                // -> laden von neuer Activity
                 startActivity(intent);
                 return true;
             } else if (id == R.id.nav_second) {
