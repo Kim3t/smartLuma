@@ -2,6 +2,7 @@ package com.example.smartloca;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.content.Intent;
 import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
@@ -22,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
         // -> werden per id angesprochen (R.id.<Objekt-ID>)
         TextView helloText = findViewById(R.id.helloText);
         Button buttonChangeText = findViewById(R.id.buttonChangeText);
-        Button buttonShowToast = findViewById(R.id.buttonShowToast);
 
         // OnClickListener für den Button
         buttonChangeText.setOnClickListener(v ->
@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 helloText.setText("Welcome to SmartLoca!")
         );
 
+        Button buttonShowToast = findViewById(R.id.buttonShowToast);
         buttonShowToast.setOnClickListener(v ->
                 // Toast ist eine nicht aufdringliche Nachricht unten auf dem Bildschirm
                 // -> genutzt für kurze Rückmeldung (Formular gesendet etc.)
@@ -39,5 +40,15 @@ public class MainActivity extends AppCompatActivity {
                         Toast.LENGTH_LONG               // Lenge der Toast anzeige
                 ).show()
         );
+
+        Button buttonOpenSecond = findViewById(R.id.buttonOpenSecond);
+        buttonOpenSecond.setOnClickListener(v -> {
+            // starten einer neuer Activity (in Context this starte second)
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+
+            // Übergibt an OS und holt aus Manifest die zweite Activity
+            // -> laden von neuer Activity
+            startActivity(intent);
+        });
     }
 }
