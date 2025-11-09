@@ -13,4 +13,11 @@
         android:text="Second Activity"
         android:textSize="24sp" />
 
+    <Button
+        android:id="@+id/buttonOpenFirst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zurück zur Main Activity"
+        android:layout_marginTop="16dp" />
+
 </LinearLayout>
