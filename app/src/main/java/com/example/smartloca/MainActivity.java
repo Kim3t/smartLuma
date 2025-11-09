@@ -1,11 +1,13 @@
 package com.example.smartloca;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
 import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -42,13 +44,25 @@ public class MainActivity extends AppCompatActivity {
         );
 
         Button buttonOpenSecond = findViewById(R.id.buttonOpenSecond);
+        EditText inputMessage = findViewById(R.id.inputMessage);
+
+
         buttonOpenSecond.setOnClickListener(v -> {
+            // Input speichern
+            String message = inputMessage.getText().toString().trim();
+
             // starten einer neuer Activity (in Context this starte second)
             Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+
+            // Input übergeben an second Activity
+            // erster para -> Key für andere Activity
+            intent.putExtra("EXTRA_MESSAGE", message);
 
             // Übergibt an OS und holt aus Manifest die zweite Activity
             // -> laden von neuer Activity
             startActivity(intent);
         });
+
+
     }
 }

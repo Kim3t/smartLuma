@@ -12,6 +12,14 @@
         android:text="Hello World!"
         android:textSize="24sp" />
 
+    <EditText
+        android:id="@+id/inputMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Text eingeben für zweite Activity"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="70dp" />
+
     <Button
         android:id="@+id/buttonChangeText"
         android:layout_width="wrap_content"
