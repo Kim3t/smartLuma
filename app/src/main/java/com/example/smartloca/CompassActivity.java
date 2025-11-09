@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.Toast;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -21,6 +22,9 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
     private TextView textPitch;
     private TextView textRoll;
 
+    private ImageView imageCompass;
+    private float currentAzimuth = 0f;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +33,8 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
         textAzimuth = findViewById(R.id.textAzimuth);
         textPitch = findViewById(R.id.textPitch);
         textRoll = findViewById(R.id.textRoll);
+
+        imageCompass = findViewById(R.id.imageCompass);
 
         // Aufrufen vom Gerät SensorManager über OS
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -124,6 +130,14 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
             textAzimuth.setText(String.format("Azimuth: %.1f°", azimuth));
             textPitch.setText(String.format("Pitch: %.1f°", pitch));
             textRoll.setText(String.format("Roll: %.1f°", roll));
+
+            // Kompass Image rotieren
+            float targetRotation = -azimuth;
+
+            currentAzimuth = currentAzimuth + 0.07f * (targetRotation - currentAzimuth);
+
+            imageCompass.setRotation(currentAzimuth);
+
         }
     }
 
