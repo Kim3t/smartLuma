@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             } else if (id == R.id.nav_compass) {
                 //
                 Toast.makeText(this, "Compass (noch nicht implementiert)", Toast.LENGTH_SHORT).show();
-                return true;
+                return false;
             }
             return false;
         });
