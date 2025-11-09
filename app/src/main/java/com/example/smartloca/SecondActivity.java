@@ -50,9 +50,9 @@ public class SecondActivity extends AppCompatActivity {
                 // Wir sind schon auf Second -> nichts tun
                 return true;
             } else if (id == R.id.nav_compass) {
-                //
-                Toast.makeText(this, "Compass (noch nicht implementiert)", Toast.LENGTH_SHORT).show();
-                return false;
+                Intent intent = new Intent(SecondActivity.this, CompassActivity.class);
+                startActivity(intent);
+                return true;
             }
             return false;
         });

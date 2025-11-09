@@ -22,6 +22,9 @@
         <activity
             android:name=".SecondActivity"
             android:exported="false" />
+        <activity
+            android:name=".CompassActivity"
+            android:exported="false" />
 
 
     </application>
